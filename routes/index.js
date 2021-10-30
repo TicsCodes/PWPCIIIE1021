@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', Author: 'Isaac Estrada', appName: 'WebApp PWPCII' });
+  res.render('index', { title: 'Express', Author: 'Isaac Estrada', appName: 'WebApp PWPCII', 
+  company: 'Awsome Software IE'});
 });
 
 /* Agregando una nueva ruta*/
