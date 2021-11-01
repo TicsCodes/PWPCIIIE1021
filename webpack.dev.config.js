@@ -17,5 +17,46 @@ module.exports ={
         static: path.join(__dirname, 'public'),
         port: 8085,
         host: 'localhost'
+    }, 
+    module: {
+        rules: [
+            {
+                //colocando las reglas que utilizara webpack y aplicar el modulo dependiendo del arreglo
+                //archivo que detonara la aplicacion 
+                test: /\.js $/, 
+                exclude: /(node_modules |bower_componets)/,
+                use: [
+                    {
+                        loader:'babel-loader',
+                        options:{
+                            presets:[
+                                [
+                                     '@babel/preset-env',
+                                    {
+                                        'modules': false,
+                                        'useBuiltInst': 'usage',
+                                        'targets' : {"chrome" : "80"},
+                                        'corejs' : 3 
+                                    }
+                                 ]
+                             ],
+                             "plugins": [
+                                 [
+                                    "module-resolver",
+                                    {
+                                        "root" : ["./"],
+                                        "alias" : {
+                                            "@client" : "./client"
+                                        }
+                                    }
+                                 ]
+                             ]
+
+                        }
+                    }
+                ]
+
+            }
+        ]
     }
 }
