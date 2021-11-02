@@ -7,7 +7,7 @@
     "wa-dev": "cross-env NODE_ENV=development babel-watch --watch ./server/views ./server/bin/www",
     "we-ser": "cross-env NODE_ENV=development webpack serve --config ./webpack.dev.config.js --mode development",
     "cleans": "rimraf dist-server",
-    "cleanc": "rimraf public/js",    
+    "cleanc": "rimraf public/js",
     "bu-ser": "npm run cleans && babel ./server --out-dir dist-server --copy-files",
     "bu-cli": "npm run cleanc && webpack --config ./webpack.config.js --mode production",
     "build": "npm run bu-cli && npm run bu-ser"
@@ -32,6 +32,8 @@
     "babel-watch": "^7.6.0",
     "core-js": "^3.19.0",
     "cross-env": "^7.0.3",
+    "css-loader": "^6.5.0",
+    "mini-css-extract-plugin": "^2.4.3",
     "npm-run-all": "^4.1.5",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
