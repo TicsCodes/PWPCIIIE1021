@@ -1,14 +1,14 @@
-var express = require('express');
-var router = express.Router();
+// Importando el router de home
+import homeRouter from './home';
+// Importando router de users
+import userRouter from './user';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', Author: 'Isaac Estrada', appName: 'WebApp PWPCII', 
-  company: 'Awsome Software IE'});
-});
+// Agregando las rutas a la aplicacion
+const addRoutes = (app) => {
+  app.use('/', homeRouter);
+  app.use('/user', userRouter);
+};
 
-/* Agregando una nueva ruta*/
-router.get('/greeting', function(req, res, next){
-  res.status(200).json({message: 'Estas creando una nueva ruta PWPCII'})
-})
-module.exports = router;
+export default {
+  addRoutes,
+};

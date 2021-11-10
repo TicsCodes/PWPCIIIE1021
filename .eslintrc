@@ -7,7 +7,7 @@
         "prettier/prettier": [
             "error",
             {
-                "endofLine" : "auto"
+                "endofLine" : "lf"
             }
         ]
     },
